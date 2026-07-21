@@ -3,8 +3,8 @@
 Blinklink server-driven short-form video feeds for React Native — a thin
 passthrough over the native
 [Blinklink iOS SDK](https://github.com/BlinkLinkOrg/blinklink-feed-ios).
-Layouts, content, and experiments update from the Blinklink portal with
-**no app release**.
+Layouts, content, and experiments update from the Blinklink marketer app
+with **no app release**.
 
 > **Platform status (0.x)**: iOS renders the full experience. Android
 > renders a placeholder — the native Android renderer arrives in an
@@ -29,7 +29,6 @@ cd ios && pod install
 ```tsx
 import {
   Blinklink,
-  BlinklinkScreen,
   BlinklinkFeedView,
   BlinklinkSuperFeed,
 } from '@blinklink/feed-rn';
@@ -39,13 +38,15 @@ import {
 Blinklink.configure({
   clientId: 'YOUR_CLIENT_ID',
   environment: 'development',
+  stream: 'YOUR_STREAM',
+  placement: 'YOUR_PLACEMENT',
 });
 
-// The full Frontline Feed experience as a tab:
-<BlinklinkScreen id="inspire" style={{ flex: 1 }} />
-
-// An embeddable referrer feed (give it a height):
+// A carousel embed (give it a height; also available: layout="carousel3D"):
 <BlinklinkFeedView layout="carousel" title="Today" style={{ height: 320 }} />
+
+// A grid embed:
+<BlinklinkFeedView layout="grid" style={{ flex: 1 }} />
 
 // A directly scrollable player surface for a whole tab:
 <BlinklinkSuperFeed style={{ flex: 1 }} />
