@@ -1,0 +1,7 @@
+node_modules/
+lib/
+.DS_Store
+ios/build/
+android/build/
+example/node_modules/
+example/ios/Pods/
