@@ -11,7 +11,6 @@ import {
 import {
   Blinklink,
   BlinklinkFeedView,
-  BlinklinkScreen,
   BlinklinkSuperFeed,
 } from '@blinklink/feed-rn';
 
@@ -29,7 +28,7 @@ Linking.addEventListener('url', ({ url }) =>
   Blinklink.handleUniversalLink(url)
 );
 
-type Tab = 'home' | 'inspire' | 'videos';
+type Tab = 'home' | 'videos';
 
 export default function App() {
   const [tab, setTab] = useState<Tab>('home');
@@ -54,11 +53,10 @@ export default function App() {
             />
           </ScrollView>
         )}
-        {tab === 'inspire' && <BlinklinkScreen id="inspire" style={styles.fill} />}
         {tab === 'videos' && <BlinklinkSuperFeed style={styles.fill} />}
       </View>
       <View style={styles.tabs}>
-        {(['home', 'inspire', 'videos'] as Tab[]).map((t) => (
+        {(['home', 'videos'] as Tab[]).map((t) => (
           <TouchableOpacity key={t} style={styles.tab} onPress={() => setTab(t)}>
             <Text style={[styles.tabLabel, tab === t && styles.tabActive]}>
               {t}
