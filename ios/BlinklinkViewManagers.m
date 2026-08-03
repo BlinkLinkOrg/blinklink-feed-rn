@@ -1,9 +1,5 @@
 #import <React/RCTViewManager.h>
 
-@interface RCT_EXTERN_MODULE(BlinklinkScreenManager, RCTViewManager)
-RCT_EXPORT_VIEW_PROPERTY(screenId, NSString)
-@end
-
 @interface RCT_EXTERN_MODULE(BlinklinkSuperFeedManager, RCTViewManager)
 @end
 
