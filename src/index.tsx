@@ -99,11 +99,6 @@ export const Blinklink = {
 
 export type FeedLayout = 'carousel' | 'carousel3D' | 'grid';
 
-export interface BlinklinkScreenProps extends ViewProps {
-  /** Server-driven screen id, e.g. "inspire" or "videos". */
-  id?: string;
-}
-
 export interface BlinklinkFeedViewProps extends ViewProps {
   /** Embed style; the marketer "Type" setting overrides it when configured. */
   layout?: FeedLayout;
@@ -115,20 +110,9 @@ export interface BlinklinkFeedViewProps extends ViewProps {
   placement?: string;
 }
 
-const NativeScreen = requireNativeComponent<ViewProps & { screenId?: string }>(
-  'BlinklinkScreen'
-);
 const NativeFeedView =
   requireNativeComponent<BlinklinkFeedViewProps>('BlinklinkFeedView');
 const NativeSuperFeed = requireNativeComponent<ViewProps>('BlinklinkSuperFeed');
-
-/**
- * A server-driven Blinklink screen (e.g. the full Frontline Feed
- * experience). Give it flex: 1 or an explicit size.
- */
-export function BlinklinkScreen({ id = 'inspire', ...rest }: BlinklinkScreenProps) {
-  return <NativeScreen screenId={id} {...rest} />;
-}
 
 /**
  * An embeddable referrer feed (carousel / 3D carousel / grid). Give it an

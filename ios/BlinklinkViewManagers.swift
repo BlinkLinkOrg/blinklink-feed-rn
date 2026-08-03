@@ -2,28 +2,6 @@ import BlinklinkFeed
 import React
 import UIKit
 
-// MARK: - Screen
-
-class BlinklinkScreenHostView: BLVCContainerView {
-    @objc var screenId: NSString = "inspire"
-
-    override func makeViewController() -> UIViewController? {
-        let id: BLScreenID
-        switch screenId as String {
-        case "inspire": id = .inspire
-        case "videos": id = .videos
-        default: id = .custom(screenId as String)
-        }
-        return Blinklink.screenViewController(id: id)
-    }
-}
-
-@objc(BlinklinkScreenManager)
-class BlinklinkScreenManager: RCTViewManager {
-    override static func requiresMainQueueSetup() -> Bool { true }
-    override func view() -> UIView! { BlinklinkScreenHostView() }
-}
-
 // MARK: - SuperFeed
 
 class BlinklinkSuperFeedHostView: BLVCContainerView {
