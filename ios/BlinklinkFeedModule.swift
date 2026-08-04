@@ -32,6 +32,7 @@ class BlinklinkFeedModule: RCTEventEmitter {
         Self.interceptedTypes = Set(options["interceptActions"] as? [String] ?? [])
 
         DispatchQueue.main.async {
+            Blinklink.sdkDistribution = "rn" // analytics: which wrapper shipped this SDK
             Blinklink.configure(
                 clientId: clientId,
                 environment: environment,
